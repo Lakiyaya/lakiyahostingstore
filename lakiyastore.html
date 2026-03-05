@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER LAKIYA - Premium Hosting Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #bc13fe;
+            --dark-bg: #0a0a0f;
+            --card-bg: #151520;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --accent-glow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(188, 19, 254, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 243, 255, 0.15) 0%, transparent 50%);
+            animation: bgPulse 10s ease-in-out infinite;
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        .admin-btn {
+            background: linear-gradient(135deg, var(--neon-purple), #ff006e);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            color: white !important;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(188, 19, 254, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 5%;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--neon-blue), #0099ff);
+            color: #000;
+            box-shadow: var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--neon-purple);
+        }
+
+        .btn-secondary:hover {
+            background: var(--neon-purple);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Hosting Plans Grid */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .plan-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), var(--accent-glow);
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--neon-blue);
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            background: linear-gradient(135deg, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            -webkit-text-fill-color: var(--text-secondary);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: var(--neon-blue);
+            font-weight: bold;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--neon-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        /* Blog/Posts Section */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .post-date {
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 15, 0.98);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--neon-purple);
+        }
+
+        .admin-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+        }
+
+        .admin-tab {
+            background: transparent;
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .admin-tab.active {
+            background: var(--neon-blue);
+            color: #000;
+        }
+
+        .admin-tab:hover {
+            background: var(--neon-blue);
+            color: #000;
+        }
+
+        .admin-section {
+            display: none;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .admin-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--neon-blue);
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+        }
+
+        .product-list, .post-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .product-item, .post-item {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .product-info h4, .post-info h4 {
+            color: var(--neon-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .product-info p, .post-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .product-actions, .post-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-edit {
+            background: var(--neon-blue);
+            color: #000;
+        }
+
+        .btn-delete {
+            background: #ff006e;
+            color: white;
+        }
+
+        .btn-small:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .close-admin {
+            background: transparent;
+            border: 2px solid var(--neon-purple);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .close-admin:hover {
+            background: var(--neon-purple);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0,0,0,0.3);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Login Modal */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--neon-purple);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 2rem;
+            color: var(--neon-blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .hero {
+                padding: 4rem 5%;
+            }
+            
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-tabs {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .plan-card, .service-card, .post-card {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">CYBER LAKIYA</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#plans">Plans</a>
+            <a href="#services">Services</a>
+            <a href="#posts">Blog</a>
+            <button class="admin-btn" onclick="showLogin()">Admin</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Next-Gen Hosting<br>For Future Builders</h1>
+        <p>Lightning-fast servers, unbeatable uptime, and cyber-grade security. Power your digital empire with CYBER LAKIYA.</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/94774554230?text=Hi%20CYBER%20LAKIYA,%20I%20want%20to%20order%20hosting" target="_blank" class="btn btn-whatsapp">
+                📱 Order via WhatsApp
+            </a>
+            <a href="#plans" class="btn btn-primary">View Plans</a>
+        </div>
+    </section>
+
+    <!-- Hosting Plans Section -->
+    <section id="plans">
+        <h2 class="section-title">Hosting Plans</h2>
+        <div class="plans-grid" id="plansContainer">
+            <!-- Plans loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid" id="servicesContainer">
+            <!-- Services loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Blog/Posts Section -->
+    <section id="posts">
+        <h2 class="section-title">Latest Updates</h2>
+        <div class="posts-grid" id="postsContainer">
+            <!-- Posts loaded dynamically -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">CYBER LAKIYA</div>
+            <p>Premium Hosting & Web Solutions</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://wa.me/94774554230" style="color: #25d366; text-decoration: none; font-size: 1.2rem;">
+                    📱 WhatsApp: +94 77 455 4230
+                </a>
+            </p>
+            <p style="margin-top: 2rem; color: var(--text-secondary);">
+                © 2026 CYBER LAKIYA Hosting. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/94774554230?text=Hi%20CYBER%20LAKIYA,%20I%20need%20help%20with%20hosting" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        💬
+    </a>
+
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <h2>🔐 Admin Access</h2>
+            <div class="form-group">
+                <input type="password" id="adminPass" placeholder="Enter password" style="text-align: center;">
+            </div>
+            <button class="btn btn-primary" onclick="checkLogin()" style="width: 100%;">Login</button>
+            <button class="btn btn-secondary" onclick="closeLogin()" style="width: 100%; margin-top: 1rem;">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1 style="color: var(--neon-blue);">CYBER LAKIYA Admin</h1>
+                <button class="close-admin" onclick="closeAdmin()">Exit</button>
+            </div>
+
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="switchTab('products')">Products</button>
+                <button class="admin-tab" onclick="switchTab('posts')">Blog Posts</button>
+                <button class="admin-tab" onclick="switchTab('settings')">Settings</button>
+            </div>
+
+            <!-- Products Tab -->
+            <div class="admin-section active" id="productsTab">
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--neon-purple);">Add / Edit Product</h3>
+                        <form id="productForm" onsubmit="saveProduct(event)">
+                            <input type="hidden" id="editProductId">
+                            <div class="form-group">
+                                <label>Type</label>
+                                <select id="productType" onchange="toggleProductFields()">
+                                    <option value="hosting">Hosting Plan</option>
+                                    <option value="service">Service</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" id="productName" required>
+                            </div>
+                            <div class="form-group" id="priceGroup">
+                                <label>Price</label>
+                                <input type="text" id="productPrice" placeholder="e.g., LKR 500/month">
+                            </div>
+                            <div class="form-group" id="storageGroup">
+                                <label>Storage</label>
+                                <input type="text" id="productStorage" placeholder="e.g., 5GB SSD">
+                            </div>
+                            <div class="form-group" id="bandwidthGroup">
+                                <label>Bandwidth</label>
+                                <input type="text" id="productBandwidth" placeholder="e.g., Unlimited">
+                            </div>
+                            <div class="form-group">
+                                <label>Description/Features (one per line)</label>
+                                <textarea id="productDesc" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Save Product</button>
+                            <button type="button" class="btn btn-secondary" style="width: 100%; margin-top: 0.5rem;" onclick="resetProductForm()">Clear</button>
+                        </form>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--neon-purple);">Manage Products</h3>
+                        <div class="product-list" id="adminProductList"></div>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" onclick="exportData()">💾 Export Backup</button>
+                        <input type="file" id="importFile" style="display: none;" onchange="importData(this)">
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 0.5rem;" onclick="document.getElementById('importFile').click()">📁 Import Backup</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posts Tab -->
+            <div class="admin-section" id="postsTab">
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--neon-purple);">Add / Edit Post</h3>
+                        <form id="postForm" onsubmit="savePost(event)">
+                            <input type="hidden" id="editPostId">
+                            <div class="form-group">
+                                <label>Post Title</label>
+                                <input type="text" id="postTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Excerpt (Short Description)</label>
+                                <input type="text" id="postExcerpt" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Content (Full Text)</label>
+                                <textarea id="postContent" rows="6" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Icon/Emoji</label>
+                                <input type="text" id="postIcon" value="📝" maxlength="2">
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Publish Post</button>
+                            <button type="button" class="btn btn-secondary" style="width: 100%; margin-top: 0.5rem;" onclick="resetPostForm()">Clear</button>
+                        </form>
+                    </div>
+
+                    <div class="admin-card">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--neon-purple);">Manage Posts</h3>
+                        <div class="post-list" id="adminPostList"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="admin-section" id="settingsTab">
+                <div class="admin-card" style="max-width: 600px;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--neon-purple);">WhatsApp Settings</h3>
+                    <div class="form-group">
+                        <label>WhatsApp Number (with country code)</label>
+                        <input type="text" id="whatsappNumber" value="94774554230">
+                    </div>
+                    <div class="form-group">
+                        <label>Default Order Message</label>
+                        <input type="text" id="whatsappMessage" value="Hi CYBER LAKIYA, I want to order hosting">
+                    </div>
+                    <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+                    
+                    <h3 style="margin: 2rem 0 1.5rem; color: var(--neon-purple);">Change Admin Password</h3>
+                    <div class="form-group">
+                        <label>Current Password</label>
+                        <input type="password" id="currentPass">
+                    </div>
+                    <div class="form-group">
+                        <label>New Password</label>
+                        <input type="password" id="newPass">
+                    </div>
+                    <button class="btn btn-secondary" onclick="changePassword()">Update Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const CONFIG = {
+            whatsappNumber: "94774554230",
+            whatsappMessage: "Hi CYBER LAKIYA, I want to order hosting",
+            adminPassword: "lakiya2009"
+        };
+
+        // Default Data
+        const defaultData = {
+            hosting: [
+                {
+                    id: 1,
+                    name: "Starter Hosting",
+                    price: "LKR 500/month",
+                    storage: "5GB SSD",
+                    bandwidth: "Unlimited",
+                    features: ["5GB SSD Storage", "Unlimited Bandwidth", "Free SSL", "1 Website", "24/7 Support"]
+                },
+                {
+                    id: 2,
+                    name: "Business Hosting",
+                    price: "LKR 1200/month",
+                    storage: "20GB SSD",
+                    bandwidth: "Unlimited",
+                    features: ["20GB SSD Storage", "Unlimited Bandwidth", "Free SSL", "10 Websites", "Priority Support"]
+                },
+                {
+                    id: 3,
+                    name: "Pro Hosting",
+                    price: "LKR 2500/month",
+                    storage: "50GB SSD",
+                    bandwidth: "Unlimited",
+                    features: ["50GB SSD Storage", "Unlimited Bandwidth", "Free SSL", "Unlimited Websites", "Daily Backups"]
+                }
+            ],
+            services: [
+                {
+                    id: 101,
+                    name: "Web Hosting",
+                    description: "Reliable shared hosting with 99.9% uptime guarantee and free SSL certificates.",
+                    icon: "🌐"
+                },
+                {
+                    id: 102,
+                    name: "VPS Hosting",
+                    description: "Virtual Private Servers with dedicated resources, root access, and full control panel.",
+                    icon: "🖥️"
+                },
+                {
+                    id: 103,
+                    name: "Domain Registration",
+                    description: "Register your perfect domain with competitive pricing and free privacy protection.",
+                    icon: "🔍"
+                },
+                {
+                    id: 104,
+                    name: "Website Development",
+                    description: "Professional web design and development services tailored to your business needs.",
+                    icon: "💻"
+                }
+            ],
+            posts: [
+                {
+                    id: 1,
+                    title: "Welcome to CYBER LAKIYA",
+                    excerpt: "Your trusted partner for premium web hosting solutions in Sri Lanka.",
+                    content: "We are excited to launch our new hosting services...",
+                    icon: "🚀",
+                    date: new Date().toLocaleDateString()
+                }
+            ]
+        };
+
+        // Initialize Data
+        let data = JSON.parse(localStorage.getItem('cyberLakiyaData')) || defaultData;
+        let settings = JSON.parse(localStorage.getItem('cyberLakiyaSettings')) || CONFIG;
+
+        function saveToStorage() {
+            localStorage.setItem('cyberLakiyaData', JSON.stringify(data));
+            localStorage.setItem('cyberLakiyaSettings', JSON.stringify(settings));
+            renderAll();
+        }
+
+        function renderAll() {
+            renderHostingPlans();
+            renderServices();
+            renderPosts();
+            renderAdminProducts();
+            renderAdminPosts();
+            updateWhatsAppLinks();
+        }
+
+        function updateWhatsAppLinks() {
+            const links = document.querySelectorAll('a[href*="wa.me"]');
+            links.forEach(link => {
+                const url = new URL(link.href);
+                url.pathname = `/${settings.whatsappNumber}`;
+                link.href = url.toString();
+            });
+        }
+
+        function renderHostingPlans() {
+            const container = document.getElementById('plansContainer');
+            container.innerHTML = data.hosting.map(plan => `
+                <div class="plan-card">
+                    <h3 class="plan-name">${plan.name}</h3>
+                    <div class="plan-price">${plan.price.replace(/\/month/, '<span>/month</span>')}</div>
+                    <ul class="plan-features">
+                        <li><strong>Storage:</strong> ${plan.storage}</li>
+                        <li><strong>Bandwidth:</strong> ${plan.bandwidth}</li>
+                        ${plan.features.slice(2).map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                    <a href="https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(`Hi, I want to order ${plan.name} - ${plan.price}`)}" 
+                       target="_blank" class="btn btn-whatsapp" style="width: 100%; justify-content: center;">
+                        📱 Order Now
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function renderServices() {
+            const container = document.getElementById('servicesContainer');
+            container.innerHTML = data.services.map(service => `
+                <div class="service-card">
+                    <div class="service-icon">${service.icon}</div>
+                    <h3>${service.name}</h3>
+                    <p>${service.description}</p>
+                    <a href="https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in ${service.name}`)}" 
+                       target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        Inquire Now
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function renderPosts() {
+            const container = document.getElementById('postsContainer');
+            if (data.posts.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">No posts yet.</p>';
+                return;
+            }
+            container.innerHTML = data.posts.map(post => `
+                <div class="post-card">
+                    <div class="post-image">${post.icon}</div>
+                    <div class="post-content">
+                        <div class="post-date">${post.date}</div>
+                        <h3 class="post-title">${post.title}</h3>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderAdminProducts() {
+            const container = document.getElementById('adminProductList');
+            let html = '<h4 style="color: var(--neon-blue); margin-bottom: 1rem;">Hosting Plans</h4>';
+            
+            data.hosting.forEach(plan => {
+                html += `
+                    <div class="product-item">
+                        <div class="product-info">
+                            <h4>${plan.name}</h4>
+                            <p>${plan.price}</p>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-small btn-edit" onclick="editProduct('hosting', ${plan.id})">Edit</button>
+                            <button class="btn-small btn-delete" onclick="deleteProduct('hosting', ${plan.id})">Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '<h4 style="color: var(--neon-blue); margin: 2rem 0 1rem;">Services</h4>';
+            
+            data.services.forEach(service => {
+                html += `
+                    <div class="product-item">
+                        <div class="product-info">
+                            <h4>${service.name}</h4>
+                            <p>${service.description.substring(0, 30)}...</p>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-small btn-edit" onclick="editProduct('service', ${service.id})">Edit</button>
+                            <button class="btn-small btn-delete" onclick="deleteProduct('service', ${service.id})">Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function renderAdminPosts() {
+            const container = document.getElementById('adminPostList');
+            if (data.posts.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-secondary);">No posts yet.</p>';
+                return;
+            }
+            container.innerHTML = data.posts.map(post => `
+                <div class="post-item">
+                    <div class="post-info">
+                        <h4>${post.icon} ${post.title}</h4>
+                        <p>${post.date}</p>
+                    </div>
+                    <div class="post-actions">
+                        <button class="btn-small btn-edit" onclick="editPost(${post.id})">Edit</button>
+                        <button class="btn-small btn-delete" onclick="deletePost(${post.id})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Tab Switching
+        function switchTab(tab) {
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tab + 'Tab').classList.add('active');
+        }
+
+        // Product Functions
+        function toggleProductFields() {
+            const type = document.getElementById('productType').value;
+            const isHosting = type === 'hosting';
+            
+            document.getElementById('priceGroup').style.display = isHosting ? 'block' : 'none';
+            document.getElementById('storageGroup').style.display = isHosting ? 'block' : 'none';
+            document.getElementById('bandwidthGroup').style.display = isHosting ? 'block' : 'none';
+        }
+
+        function saveProduct(e) {
+            e.preventDefault();
+            
+            const type = document.getElementById('productType').value;
+            const editId = document.getElementById('editProductId').value;
+            const name = document.getElementById('productName').value;
+            const desc = document.getElementById('productDesc').value;
+            
+            if (type === 'hosting') {
+                const price = document.getElementById('productPrice').value;
+                const storage = document.getElementById('productStorage').value;
+                const bandwidth = document.getElementById('productBandwidth').value;
+                const features = desc.split('\n').filter(f => f.trim());
+                
+                const newPlan = {
+                    id: editId ? parseInt(editId) : Date.now(),
+                    name, price, storage, bandwidth,
+                    features: features.length > 0 ? features : [storage, bandwidth]
+                };
+
+                if (editId) {
+                    const idx = data.hosting.findIndex(p => p.id === parseInt(editId));
+                    if (idx !== -1) data.hosting[idx] = newPlan;
+                } else {
+                    data.hosting.push(newPlan);
+                }
+            } else {
+                const newService = {
+                    id: editId ? parseInt(editId) : Date.now() + 100,
+                    name,
+                    description: desc,
+                    icon: "🚀"
+                };
+
+                if (editId) {
+                    const idx = data.services.findIndex(p => p.id === parseInt(editId));
+                    if (idx !== -1) data.services[idx] = newService;
+                } else {
+                    data.services.push(newService);
+                }
+            }
+
+            saveToStorage();
+            resetProductForm();
+            alert('Product saved!');
+        }
+
+        function editProduct(type, id) {
+            const product = type === 'hosting' 
+                ? data.hosting.find(p => p.id === id)
+                : data.services.find(p => p.id === id);
+            
+            if (!product) return;
+
+            document.getElementById('productType').value = type;
+            document.getElementById('editProductId').value = id;
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productDesc').value = type === 'hosting' 
+                ? product.features.join('\n') 
+                : product.description;
+            
+            toggleProductFields();
+            
+            if (type === 'hosting') {
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('productStorage').value = product.storage;
+                document.getElementById('productBandwidth').value = product.bandwidth;
+            }
+        }
+
+        function deleteProduct(type, id) {
+            if (!confirm('Delete this product?')) return;
+            
+            if (type === 'hosting') {
+                data.hosting = data.hosting.filter(p => p.id !== id);
+            } else {
+                data.services = data.services.filter(p => p.id !== id);
+            }
+            
+            saveToStorage();
+        }
+
+        function resetProductForm() {
+            document.getElementById('productForm').reset();
+            document.getElementById('editProductId').value = '';
+            toggleProductFields();
+        }
+
+        // Post Functions
+        function savePost(e) {
+            e.preventDefault();
+            
+            const editId = document.getElementById('editPostId').value;
+            const newPost = {
+                id: editId ? parseInt(editId) : Date.now(),
+                title: document.getElementById('postTitle').value,
+                excerpt: document.getElementById('postExcerpt').value,
+                content: document.getElementById('postContent').value,
+                icon: document.getElementById('postIcon').value,
+                date: new Date().toLocaleDateString()
+            };
+
+            if (editId) {
+                const idx = data.posts.findIndex(p => p.id === parseInt(editId));
+                if (idx !== -1) data.posts[idx] = newPost;
+            } else {
+                data.posts.unshift(newPost);
+            }
+
+            saveToStorage();
+            resetPostForm();
+            alert('Post published!');
+        }
+
+        function editPost(id) {
+            const post = data.posts.find(p => p.id === id);
+            if (!post) return;
+
+            document.getElementById('editPostId').value = id;
+            document.getElementById('postTitle').value = post.title;
+            document.getElementById('postExcerpt').value = post.excerpt;
+            document.getElementById('postContent').value = post.content;
+            document.getElementById('postIcon').value = post.icon;
+        }
+
+        function deletePost(id) {
+            if (!confirm('Delete this post?')) return;
+            data.posts = data.posts.filter(p => p.id !== id);
+            saveToStorage();
+        }
+
+        function resetPostForm() {
+            document.getElementById('postForm').reset();
+            document.getElementById('editPostId').value = '';
+        }
+
+        // Settings
+        function saveSettings() {
+            settings.whatsappNumber = document.getElementById('whatsappNumber').value;
+            settings.whatsappMessage = document.getElementById('whatsappMessage').value;
+            localStorage.setItem('cyberLakiyaSettings', JSON.stringify(settings));
+            alert('Settings saved!');
+            renderAll();
+        }
+
+        function changePassword() {
+            const current = document.getElementById('currentPass').value;
+            const newPass = document.getElementById('newPass').value;
+            
+            if (current !== settings.adminPassword) {
+                alert('Current password is wrong!');
+                return;
+            }
+            
+            if (newPass.length < 4) {
+                alert('Password too short!');
+                return;
+            }
+            
+            settings.adminPassword = newPass;
+            localStorage.setItem('cyberLakiyaSettings', JSON.stringify(settings));
+            alert('Password changed successfully!');
+            document.getElementById('currentPass').value = '';
+            document.getElementById('newPass').value = '';
+        }
+
+        // Admin Access
+        function showLogin() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+            document.getElementById('adminPass').value = '';
+        }
+
+        function checkLogin() {
+            const pass = document.getElementById('adminPass').value;
+            if (pass === settings.adminPassword) {
+                closeLogin();
+                document.getElementById('adminPanel').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Load settings into form
+                document.getElementById('whatsappNumber').value = settings.whatsappNumber;
+                document.getElementById('whatsappMessage').value = settings.whatsappMessage;
+            } else {
+                alert('Wrong password!');
+            }
+        }
+
+        function closeAdmin() {
+            document.getElementById('adminPanel').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            resetProductForm();
+            resetPostForm();
+        }
+
+        // Backup/Export
+        function exportData() {
+            const exportObj = {
+                data: data,
+                settings: settings,
+                exportDate: new Date().toISOString()
+            };
+            const blob = new Blob([JSON.stringify(exportObj, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `cyber-lakiya-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+        }
+
+        function importData(input) {
+            const file = input.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const imported = JSON.parse(e.target.result);
+                    if (imported.data && imported.settings) {
+                        if (confirm('This will replace all current data. Continue?')) {
+                            data = imported.data;
+                            settings = imported.settings;
+                            saveToStorage();
+                            alert('Data imported successfully!');
+                        }
+                    } else {
+                        throw new Error('Invalid backup file');
+                    }
+                } catch (err) {
+                    alert('Error: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('loginModal');
+            if (event.target === modal) {
+                closeLogin();
+            }
+        }
+
+        // Initialize
+        renderAll();
+    </script>
+</body>
+</html>
